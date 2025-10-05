@@ -1,7 +1,6 @@
 
 
 class Product:
-    
     def __init__(self, name: str, description: str, price: float, quantity: int):
         self.name = name
         self.description = description

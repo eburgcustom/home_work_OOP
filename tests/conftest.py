@@ -1,7 +1,8 @@
 import pytest
 
-from src.product import Product
 from src.category import Category
+from src.product import Product
+
 
 @pytest.fixture
 def category_1():
@@ -38,7 +39,8 @@ def category_2():
                             "Фоновая подсветка",
                             123000.0,
                             7),
-                        Product("43\" Xiaomi TV A Pro",
+                        Product(
+                            "43\" Xiaomi TV A Pro",
                             "Яркий 4К QLED экран с естественными цветами",
                             27000.0,
                             15)]
