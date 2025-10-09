@@ -7,12 +7,10 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
-
     @property
     def price(self) -> float:
         """ Геттер для приватного атрибута цены"""
         return self.__price
-
 
     @price.setter
     def price(self, new_price: float) -> None:

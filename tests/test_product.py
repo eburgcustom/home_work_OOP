@@ -1,7 +1,5 @@
 
-import pytest
 from unittest.mock import patch
-from src.product import Product
 
 
 def test_product_init(product):
@@ -45,4 +43,3 @@ def test_price_setter_decrease_without_confirmation(product):
             product.price = 800.0
             mock_print.assert_called_with("Изменение отменено пользователем")
     assert product.price == 27000.0
-

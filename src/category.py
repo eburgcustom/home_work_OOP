@@ -13,7 +13,6 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(products) if products else 0
 
-
     def add_product(self, product: Product) -> None:
         """Добавляет объект Product в категорию."""
         if not isinstance(product, Product):
