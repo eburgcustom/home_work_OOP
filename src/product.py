@@ -43,13 +43,13 @@ class Product:
             product_data["price"],
             product_data["quantity"],
         )
-        
-    def __add__(self, other) -> float:
+
+    def __add__(self, other: 'Product') -> float:
         """Складывает продукты по общей стоимости (цена * количество).
-        
+
         Возвращает:
             float: Суммарная стоимость всех товаров
-            
+
         Исключения:
             TypeError: Если other не является экземпляром класса Product
         """
