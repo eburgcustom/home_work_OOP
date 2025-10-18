@@ -18,7 +18,13 @@ class Category:
         if not isinstance(product, Product):
             raise TypeError("Можно добавлять только объекты класса Product")
         self.__products.append(product)
-        Category.product_count += 1
+        
+    def __str__(self) -> str:
+        """Возвращает строковое представление категории в формате:
+        Название категории, количество продуктов: X шт.
+        """
+        total_quantity = sum(product.quantity for product in self.__products)
+        return f"{self.name}, количество продуктов: {total_quantity} шт."
 
     @property
     def products(self) -> str:
