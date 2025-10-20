@@ -1,6 +1,10 @@
 
 from unittest.mock import patch
 
+import pytest
+
+from src.product import Product
+
 
 def test_product_init(product):
     """Тестирование инициализации продукта"""
@@ -43,3 +47,26 @@ def test_price_setter_decrease_without_confirmation(product):
             product.price = 800.0
             mock_print.assert_called_with("Изменение отменено пользователем")
     assert product.price == 27000.0
+
+
+def test_product_str(product):
+    """Тестирование строкового представления товара в формате:
+       Название товара, цена: X руб. Остаток: Y шт."""
+    assert str(product) == "43\" Xiaomi TV A Pro, 27000.0 руб. Остаток: 15 шт."
+
+
+def test_add_products_success():
+    """Проверяет успешное сложение двух продуктов по общей стоимости."""
+    p1 = Product("Samsung Galaxy S23", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
+    p2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
+
+    total = p1 + p2
+    assert total == 2580000.0
+
+
+def test_add_products_type_error():
+    """Проверяет выброс TypeError при сложении с объектом другого типа."""
+    p = Product("Телефон", "Модель A", 100.0, 3)
+
+    with pytest.raises(TypeError, match="Можно складывать только объекты класса Product"):
+        _ = p + 123

@@ -27,3 +27,8 @@ def test_products(category_2):
     products_str = category_2.products
     assert products_str == ('55" QLED 4K, 123000.0 руб. Остаток: 7 шт.\n'
                             '43" Xiaomi TV A Pro, 27000.0 руб. Остаток: 15 шт.')
+
+
+def test_category_str(category_1, category_2):
+    assert str(category_1) == "Смартфоны, количество продуктов: 27 шт."
+    assert str(category_2) == "Телевизоры, количество продуктов: 22 шт."

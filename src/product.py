@@ -7,6 +7,12 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
+    def __str__(self) -> str:
+        """Возвращает строковое представление товара в формате:
+        Название товара, цена: X руб. Остаток: Y шт.
+        """
+        return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
+
     @property
     def price(self) -> float:
         """ Геттер для приватного атрибута цены"""
@@ -37,3 +43,16 @@ class Product:
             product_data["price"],
             product_data["quantity"],
         )
+
+    def __add__(self, other: 'Product') -> float:
+        """Складывает продукты по общей стоимости (цена * количество).
+
+        Возвращает:
+            float: Суммарная стоимость всех товаров
+
+        Исключения:
+            TypeError: Если other не является экземпляром класса Product
+        """
+        if not isinstance(other, Product):
+            raise TypeError("Можно складывать только объекты класса Product")
+        return (self.price * self.quantity) + (other.price * other.quantity)
