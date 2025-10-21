@@ -12,11 +12,13 @@ def test_smartphone_init(smartphone_1):
     assert smartphone_1.memory == 256
     assert smartphone_1.color == "Серый"
 
+
 def test_smartphone_add(smartphone_1, smartphone_2):
     """Тестирование сложения двух продуктов"""
     assert smartphone_1 + smartphone_2 == 2580000.0
 
+
 def test_smartphone_add_error(smartphone_1):
     """Тестирование ошибки сложения"""
     with pytest.raises(TypeError):
-        result = smartphone_1 + 1
+        smartphone_1 + 1

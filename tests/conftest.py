@@ -1,9 +1,9 @@
 import pytest
 
 from src.category import Category
+from src.lawn_grass import LawnGrass
 from src.product import Product
 from src.smartphone import Smartphone
-from src.lawn_grass import LawnGrass
 
 
 @pytest.fixture
@@ -90,6 +90,7 @@ def grass_1():
                      "Россия",
                      "7 дней",
                      "Зеленый")
+
 
 @pytest.fixture
 def grass_2():
