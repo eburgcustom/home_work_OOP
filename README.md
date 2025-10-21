@@ -22,7 +22,9 @@ home_work_OOP/
 ├── src/                # Исходный код приложения
 │   ├── __init__.py
 │   ├── category.py     # Класс Category
+│   ├── lawn_grass.py   # Подкласс LawnGrass класса Product
 │   ├── product.py      # Класс Product
+│   ├── smartphone.py   # Подкласс Smartphone класса Product
 │   └── utils.py        # Вспомогательные функции
 ├── tests/              # Тесты
 ├── pyproject.toml      # Конфигурация проекта и зависимости
@@ -48,3 +50,8 @@ category = Category("Электроника", "Техника для дома и
 categories_data = load_json("data/products.json")
 categories = create_category_from_json(categories_data)
 ```
+### Классы «Смартфон» (Smartphone) и «Трава газонная» (LawnGrass)
+Реализованы два класса Смартфоны и Газонная трава, которые являются классами-наследниками от исходного класса 
+Product.
+Функциональность в этих классах не дает возможность сложить смартфон и траву газонную, вместо этого выдается ошибка 
+TypeError.
