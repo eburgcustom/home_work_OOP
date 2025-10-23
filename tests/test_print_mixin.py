@@ -1,6 +1,6 @@
+from src.lawn_grass import LawnGrass
 from src.product import Product
 from src.smartphone import Smartphone
-from src.lawn_grass import LawnGrass
 
 
 def test_print_mixin(capsys):
@@ -22,5 +22,3 @@ def test_print_mixin(capsys):
               "Темно-зеленый")
     message = capsys.readouterr()
     assert message.out.strip() == "Создан объект класса LawnGrass('Газонная трава 2', 'Выносливая трава', 450.0, 15)"
-
-

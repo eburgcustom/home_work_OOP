@@ -16,7 +16,7 @@ class Product(PrintMixin, BaseProduct):
             product_data["quantity"],
         )
 
-    def __add__(self, other: 'Product') -> float:
+    def __add__(self, other: 'BaseProduct') -> float:
         """Складывает продукты по общей стоимости (цена * количество).
 
         Возвращает:

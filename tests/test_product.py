@@ -3,9 +3,8 @@ from unittest.mock import patch
 
 import pytest
 
-from src.product import Product
-
 from src.base_product import BaseProduct
+from src.product import Product
 
 
 def test_product_init(product):
