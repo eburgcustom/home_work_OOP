@@ -80,3 +80,8 @@ def test_baseproduct_is_abstract():
     """Проверяет, что BaseProduct нельзя инстанцировать напрямую."""
     with pytest.raises(TypeError):
         BaseProduct("Тест", "Описание", 100, 1)
+
+
+def test_value_error_on_zero_quantity():
+    with pytest.raises(ValueError, match="Товар с нулевым количеством не может быть добавлен"):
+        Product("Тестовый товар", "Описание", 100.0, 0)

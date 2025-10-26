@@ -1,4 +1,5 @@
 import pytest
+from src.category import Category
 
 
 def test_category_init(category_1, category_2):
@@ -39,3 +40,13 @@ def test_products(category_2):
 def test_category_str(category_1, category_2):
     assert str(category_1) == "Смартфоны, количество продуктов: 27 шт."
     assert str(category_2) == "Телевизоры, количество продуктов: 22 шт."
+
+
+def test_middle_price_success(category_1):
+    assert category_1.middle_price() == 140333.3
+
+
+def test_middle_price_empty():
+    # Пустая категория
+    category = Category("Пустая", "Без товаров", [])
+    assert category.middle_price() == 0.0
