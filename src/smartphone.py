@@ -1,3 +1,4 @@
+from src.base_product import BaseProduct
 from src.product import Product
 
 
@@ -10,7 +11,7 @@ class Smartphone(Product):
         self.memory = memory
         self.color = color
 
-    def __add__(self, other: 'Product') -> float:
+    def __add__(self, other: BaseProduct) -> float:
         """Складывает смартфоны по общей стоимости (цена * количество).
 
         Возвращает:

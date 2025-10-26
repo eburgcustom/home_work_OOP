@@ -3,6 +3,7 @@ from unittest.mock import patch
 
 import pytest
 
+from src.base_product import BaseProduct
 from src.product import Product
 
 
@@ -27,6 +28,9 @@ def test_price_setter_valid(product):
 
 def test_price_setter_invalid(capsys, product):
     """Тестирование сеттера цены с некорректным значением"""
+    # Очищаем буфер после создания объекта (который происходит в фикстуре)
+    capsys.readouterr()
+
     product.price = -100.0
     message = capsys.readouterr()
     assert message.out.strip() == "Цена не должна быть нулевая или отрицательная"
@@ -70,3 +74,9 @@ def test_add_products_type_error():
 
     with pytest.raises(TypeError, match="Можно складывать только объекты класса Product"):
         _ = p + 123
+
+
+def test_baseproduct_is_abstract():
+    """Проверяет, что BaseProduct нельзя инстанцировать напрямую."""
+    with pytest.raises(TypeError):
+        BaseProduct("Тест", "Описание", 100, 1)
