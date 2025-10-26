@@ -34,3 +34,19 @@ class Category:
         for p in self.__products:
             result += f"{p.name}, {p.price} руб. Остаток: {p.quantity} шт.\n"
         return result.strip()
+        
+    def middle_price(self) -> float:
+        """
+        Рассчитывает средний ценник всех товаров в категории.
+        
+        Возвращает:
+            float: Средняя цена товаров в категории
+            
+        Исключения:
+            ZeroDivisionError: Если в категории нет товаров, возвращает 0
+        """
+        try:
+            total_price = sum(product.price for product in self.__products)
+            return round(total_price / len(self.__products), 1)
+        except ZeroDivisionError:
+            return 0.0
